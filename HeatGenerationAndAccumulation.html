@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heat Generation and Accumulation</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+    <!-- Include sidebar -->
+    <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+    <div class="content">
+        <h1>Heat Generation and Accumulation</h1>
+        <p>Heat is measured in Duplicant Thermal Units, or DTUs. Because the most commonly used units of mass is the kilogram, DTUs are commonly expressed as kDTUs, or increments of 1000 DTUs. DTUs apply heat to a medium based on the medium’s specific heat capacity and thermal conductivity. If the medium has values of 1 for those measurements, then 1 kDTU of heat will increase the temperature of 1 kg of the medium by 1 degree C.</p>
+		
+		<p>Most machinery generates heat, either passively or when used. Other objects can also generate heat. You can see which objects generate heat by using the temperature overlay. Heat generators are marked with an icon.</p>
+		
+		<figure>
+<img src="images/HeatGenerators.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/HeatGenerators.jpg')">
+<figcaption>A fiery icon indicates the object generates heat.</figcaption>
+</figure>
+		
+		<p>Some objects remove heat. These also show up on the temperature overlay with an icon.</p>
+		
+		<figure>
+<img src="images/HeatRemovers.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/HeatRemovers.jpg')">
+<figcaption>A snowflake icon indicates the object removes heat.</figcaption>
+</figure>
+		
+		<p>The properties box for these objects lists exactly how much heat they generate or remove. Use this to get a sense of how much heat you’re generating overall.</p>
+		
+		<h2>When Heat Becomes a Problem</h2>
+		
+		<p>The default temperature overlay displays a general overview using a color-coded scale. In most cases, temperatures in the chilled, temperate, or warm ranges are acceptable. As you accumulate heat, new problems will arise.</p>
+		
+		<h3>Crop Wilting</h3>
+		
+		<p>Above 30 degrees C, Mealwood and Bristle Blossom plants begin to wilt. Above 35 degrees C, Dusk Cap plants begin to wilt. Wilting pauses growth, but does not kill the plant. A few plants wilting might not ruin your food supply, but it is an indication that you should start removing heat from your farm areas.</p>
+		
+		<figure>
+<img src="images/CropWilting.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/CropWilting.jpg')">
+<figcaption>Some wilting crops. Hovering over the plant indicates why it's not growing.</figcaption>
+</figure>
+		
+		<h3>Duplicant Comfort</h3>
+		
+		<p>Above 45 degrees C, your duplicants gain the Toasty Surroundings effect. This indicates discomfort in the current atmosphere, and penalizes them with -5 Athletics, removes 50% stamina per cycle, and adds 10% stress per cycle. This greatly slows down their movement and capacity to accomplish errands.</p>
+
+		<p>Above 71.85 degrees C, duplicants get scalded, damaging their health until they reach cooler temperatures. Given enough time and exposure, this can kill your duplicants.</p>
+
+		<p>You can mitigate these effects through the use of Atmo Suits. This prevents Toasty Surroundings and increases the scalding threshold to 798.75 degrees C.</p>
+
+		<h3>Machine Damage</h3>
+		
+		<p>Above 75 degrees C, machines constructed out of iron or aluminum (either ore or refined metal) begin to overheat and take damage. After enough damage, the machine breaks and becomes non-functional.</p>
+
+		<figure>
+<img src="images/OverheatDamage.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/OverheatDamage.jpg')">
+<figcaption>A coal generator overheating. A red bar underneath a machine indicates that it's damaged and how much further damage it can take before breaking.</figcaption>
+</figure>
+
+		<p>Machine damage creates a repair errand, and a duplicant can deliver the construction material to repair the damage. However, if the temperature of the machine has not been lowered, it immediately overheats and takes damage again. Instead of repairing, you should deconstruct the machine, cool the area, and reconstruct.</p>
+
+		<p>Alternatively, you can construct machinery out of a more heat-resistant material. For example, gold increases the overheat temperature to 125 degrees C. You still need to eventually consider heat accumulation if you go this route, but this gives you a higher heat threshold before problems arise.</p>
+		
+		<h3>Structure Melting</h3>
+		
+		<p>At very high temperatures, structures such as pipes, ladders, and tiles melt. The actual melting point varies greatly between materials, with the lowest you’ll likely encounter being plastic at 159.85 degrees C. Other materials with relatively low melting points that you might use include lead (327.5 degrees C), aluminum (660.3 degrees C), and granite (668.85 degrees C).</p>
+
+		<p>Melted structures are immediately destroyed with no option for repairs. Otherwise, you can deal with melted structures similarly to overheated machines by cooling the surrounding area or using a more heat-resistant construction material.</p>
+    </div>
+</body>
+</html>

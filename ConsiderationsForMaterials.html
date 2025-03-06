@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Considerations for Materials</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+    <!-- Include sidebar -->
+    <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+    <div class="content">
+        <h1>Considerations for Materials</h1>
+		
+        <p>This topic details use cases and recommendations for various materials, liquids, and gases.</p>
+		
+		<h2>Best Materials for Thermal Conductivity</h2>
+		
+		<p>Aluminum is the best basic metal for thermal conductivity, but is not available on every asteroid. If you don’t have aluminum, copper is the next best option. Thermium can be obtained through rocketry in the late game, and is substantially more effective.</p>
+
+		<p>If you are using tiles for thermal conductivity, window tiles made from diamond are the most effective. Metal tiles are slightly less effective.</p>
+
+		<p>Granite is the best raw mineral for thermal conductivity. Sandstone is not far behind, but granite is far more plentiful.</p>
+		
+		<h2>Best Materials for Insulation</h2>
+		
+		<p>Insulated tiles and pipes have greatly reduced thermal conductivity, which means material choice tends to have a marginal effect. But if your cooling needs are sensitive to slight temperature shifts or if you want to optimize, some materials are better than others.</p>
+
+		<p>Mafic rock is the best overall basic raw mineral because of its low thermal conductivity, but it can’t be used for liquid pipes. In these cases, igneous rock, obsidian, and sedimentary rock are about half as effective.</p>
+
+		<p>Ceramic is a somewhat more advanced material that is even more effective, and insulite can be obtained through rocketry, reducing thermal conductivity to almost zero.</p>
+		
+		<h2>Lead vs. Other Metals</h2>
+		
+		<p>Lead is plentiful in the oil biome and doesn’t require smelting, making it an easy metal to use for construction. The tradeoff is a lower overheat temperature and melting point.</p>
+
+		<p>Most machines have a base overheat temperature of 75 degrees C, and lead reduces this by 20 degrees C. This overheating temperature is fairly dangerous, and you should use other metals in most cases.</p>
+
+		<p>Lead is more effective for structures that just have a melting point, such as power wires. The melting point of lead is 327.5 degrees C, which is a level ambient temperatures should rarely hit. Don’t use lead in areas that experience sudden bursts of heat, such as near rocket exhaust.</p>
+		
+		<h2>Granite Pipes vs. Radiant Pipes</h2>
+		
+		<p>Granite has a relatively high thermal conductivity for its material type, and is far more plentiful than metal. This makes granite pipes a reasonable substitute for radiant pipes if you want to transfer heat with the surrounding environment.</p>
+
+		<p>Granite pipes are best used in large cooling loops where heat is transferred over a large environment. Consider augmenting the loop with strategically placed radiant pipes in smaller spots where you want more rapid heat transfer.</p>
+		
+		<h2>Manufactured and Space Materials</h2>
+		
+		<p>Manufactured and space-based materials are almost always better than basic materials, but are harder to obtain. As such, it’s worthwhile to understand when you should use these and when you can get away with more basic materials.</p>
+		
+		<ul>
+			<li><strong>Ceramic</strong> is the easiest and most common of the manufactured materials, and is useful as insulation. While most insulated tiles and pipes will greatly reduce heat transfer, ceramic insulation can reduce it to a fraction of a degree.</li>
+
+			<li><strong>Steel</strong> takes a little more effort than ceramic to make, but is still common. It is most useful for its increased overheat temperature and melting point. Use steel for machines in environments you expect to reach 125 degrees C or higher (such as thermo aquatuners in a steam box for steam turbines), and for metal-based structures that experience bursts of extreme heat, such as rocket exhaust.</li>
+
+			<li><strong>Niobium</strong> is obtained through rocketry, and is generally comparable to steel in thermal properties. Steel is preferred for these use cases because niobium can be used to manufacture thermium.</li>
+
+			<li><strong>Thermium</strong> is manufactured from niobium and tungsten, and has the highest overheat temperature, melting point, and thermal conductivity by far. It also has the second highest melting point, beat only by tungsten.</li>
+
+			<li><strong>Super coolant</strong> is manufactured from isoresin, obtained through rocketry. It is by far the best liquid for liquid cooling loops, but is very scarce. It is best used in small cooling loops where you want fast and extreme heat transfers.</li>
+		</ul>
+    </div>
+</body>
+</html>

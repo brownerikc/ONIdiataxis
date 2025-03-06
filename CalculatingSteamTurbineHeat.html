@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADD TITLE HERE</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/sortableTable.js"></script>
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+  function openModal(imageSrc) {
+    document.getElementById("fullImage").src = imageSrc;
+    document.getElementById("imageModal").style.display = "block";
+  }
+
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+</script>
+
+<body>
+  <!-- Include sidebar -->
+  <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+  <div class="content">
+<h1>Calculating Steam Turbine Heat</h1>
+
+<p>Steam turbine cooling systems are effective at removing heat, but you should consider the individual components of heat addition and removal. This can allow you to scale up your system with additional steam turbines and thermo aquatuners for additional cooling. It can also help you avoid your steam turbines from running too hot and shutting down.</p>
+
+<h2>Thermo Aquatuner Heat Transfer</h2>
+
+<p>The thermo aquatuner reduces the temperature of the input liquid by 14 degrees C. Because each liquid has a different specific heat capacity, the actual amount of heat removed from the liquid varies.</p>
+
+<p>Heat removed from the input liquid is transferred to the thermo aquatuner itself. That heat then gets transferred to the water or steam nearby.</p>
+
+<p>Assuming the thermo aquatuner is run at full input liquid capacity, the formula for the total heat moved is this:</p>
+
+<p>Heat = (SHC of liquid) * (14 degrees C) * (10 kg)</p>
+
+<h3>Choosing a Liquid</h3>
+
+<p>Ideally, you want to use the liquid with the highest specific heat capacity. However, you must also ensure that the liquid can’t hit its freezing or vaporization point. The freezing point can be avoided by automating the thermo aquatuner to turn off at a low temperature of liquid in the pipe. Avoiding the vaporization point is harder, and in practice means choosing an appropriate liquid for your environment.</p>
+
+<p>This table displays common liquids you might use, the total heat transferred, and vaporization points.</p>
+
+<table id="sortableLiquids">
+	<thead>
+		<tr>
+			<th onclick="sortTable(0, 'sortableLiquids')">Liquid</th>
+			<th onclick="sortTable(1, 'sortableLiquids')">Specific Heat Capacity</th>
+			<th onclick="sortTable(2, 'sortableLiquids')">Heat Transferred (kDTU/s)</th>
+			<th onclick="sortTable(3, 'sortableLiquids')">Vaporization Point (degrees C)</th>
+			<th onclick="sortTable(4, 'sortableLiquids')">Freezing Point (degrees C)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Crude Oil</td>
+			<td>1.690</td>
+			<td>236.6</td>
+			<td>399.85</td>
+			<td>-40.15</td>
+		</tr>
+		<tr>
+			<td>Petroleum</td>
+			<td>1.760</td>
+			<td>246.4</td>
+			<td>538.85</td>
+			<td>-57.15</td>
+		</tr>
+		<tr>
+			<td>Polluted Water</td>
+			<td>4.179</td>
+			<td>585.06</td>
+			<td>119.35</td>
+			<td>-20.65</td>
+		</tr>
+		<tr>
+			<td>Super Coolant</td>
+			<td>8.440</td>
+			<td>1181.6</td>
+			<td>436.85</td>
+			<td>-271.15</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Other liquids are not recommended due to lower specific heat capacities or vaporization points.</p>
+
+<p>To summarize the use cases:</p>
+
+<ul>
+	<li>Use super coolant if it’s available.</li>
+	<li>Use polluted water in moderately temperate environments.</li>
+	<li>Use crude oil or petroleum in hot environments. Petroleum is preferable, but requires refining.</li>
+</ul>
+
+<h2>Steam Turbine Heat</h2>
+
+<p>Steam turbines consume steam at 125 degrees C or higher and output water at 95 degrees C. This means that they remove at least 30 degrees C worth of heat from water, which has a specific heat capacity of 4.179. The formula for total heat removed is this:</p>
+
+<p>Heat removed = (4.179) * (mass of steam) * (steam temperature - 95 degrees C)</p>
+
+<p>Steam turbines can handle up to 2 kg/s of steam. Assuming you can process that amount of steam, the minimum heat removal from a steam turbine is this:</p>
+
+<p>Heat removed = (4.179) * (2kg) * (125 degrees C - 95 degrees C)</p>
+
+<p>Heat removed = 250.74 kDTU</p>
+
+<h3>Heat Production</h3>
+
+<p>While in operation, the steam turbine produces its own heat. If it reaches 100 degrees C or higher, the steam turbine stops operating until it cools down.</p>
+
+<p>The amount of heat it produces is a flat 4 kDTU while active plus 10% of the heat removed from the water:</p>
+
+<p>Heat produced = (water heat removed * 0.1) + 4</p>
+
+<p>While it might seem advantageous to use extremely hot steam (500 degrees C or higher), this can also cause the steam turbine to create an enormous amount of heat and shut down. You can attempt to handle this by extending your cooling loop to cool the steam turbine, but note that hotter steam temperatures increase the challenge.</p>
+
+<h3>Self-Cooling</h3>
+
+<p>Because the output water is below 100 degrees, you can use it as a miniature cooling loop for the steam turbine before it outputs the water back into the steam box.</p>
+
+		    <figure>
+<img src="images/SteamTurbineSelfCooling.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamTurbineSelfCooling.jpg')">
+<figcaption>Running the output through radiant pipes around the entire steam turbine maximizes self-cooling.</figcaption>
+</figure>
+
+<p>The temperature difference of 95 degree C and 100 degree C water at 2 kg converts to 41.79 kDTU. Converting that to the heat produced by steam turbines, a self-cooled steam turbine can theoretically function with steam temperatures up to 140.2 degrees C.</p>
+
+<p>In practice, this is unlikely. You are unlikely to get the full cooling from this loop, and the input steam temperature can be imprecise. Instead, a more practical maximum steam temperature to work with is 135 degrees C.</p>
+
+<p>The total heat removed for a self-cooled steam turbines at this steam temperature is as follows:</p>
+
+<p>Heat removed = (4.179) * (2kg) * (135 degrees C - 95 degrees C)</p>
+
+<p>Heat removed = 334.32 kDTU</p>
+
+<p>When factoring in the heat generation of the steam turbine, the actual heat removed is as follows:</p>
+
+<p>Real heat removed = 334.32 kDTU - (334.32 kDTU * 0.1 + 4 kDTU)</p>
+
+<p>Real heat removed = 296.888 kDTU</p>
+
+<h2>Multiple Steam Turbines and Thermo Aquatuners</h2>
+
+<p>Because the heat transfer of thermo aquatuners and heat removal of steam turbines do not match up, you need multiple steam turbines to handle the heat introduced by a thermo aquatuner running full time. The number of steam turbines required depends on the coolant liquid used.</p>
+
+<p>The following table lists calculations for steam turbine to thermo aquatuner ratios assuming a self-cooled steam turbine running at 135 degrees C.</p>
+
+<table id="sortableRatios">
+	<thead>
+		<tr>
+			<th onclick="sortTable(0, 'sortableRatios')">Liquid</th>
+			<th onclick="sortTable(1, 'sortableRatios')">Aquatuner Heat Transfer (kDTU/s)</th>
+			<th onclick="sortTable(2, 'sortableRatios')">Turbines Required</th>
+			<th onclick="sortTable(3, 'sortableRatios')">Ratio (Turbines to Aquatuners)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Crude Oil</td>
+			<td>236.6</td>
+			<td>0.8</td>
+			<td>4:5</td>
+		</tr>
+		<tr>
+			<td>Petroleum</td>
+			<td>246.4</td>
+			<td>0.83</td>
+			<td>5:6</td>
+		</tr>
+		<tr>
+			<td>Polluted Water</td>
+			<td>585.06</td>
+			<td>1.97</td>
+			<td>2:1</td>
+		</tr>
+		<tr>
+			<td>Super Coolant</td>
+			<td>1181.6</td>
+			<td>3.98</td>
+			<td>4:1</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>These ratios are approximations, but should work in almost all practical cases because thermo aqutuners are unlikely to be running full time.</p>
+
+<p>Loops using polluted water or super coolant should add additional steam turbines to handle the excess heat from the thermo aquatuner. Otherwise, the steam box will constantly increase in temperature and the steam turbines will eventually stop self-cooling. When using crude oil or petroleum as a coolant, simplifying the ratio to 1:1 works because the worst case is the steam turbine briefly turning off from lack of heat.</p>
+
+<p>You can also add additional thermo aquatuners and the equivalent ratio of steam turbines to transfer even more heat through your loop at once. If you do this, pay close attention to the freezing point of your coolant and adjust the automation of your themo aquatuners accordingly.</p>
+  </div>
+</body>
+</html>

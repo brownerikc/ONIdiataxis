@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heat Management</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+    <!-- Include sidebar -->
+    <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+    <div class="content">
+        <h1>Heat Management</h1>
+        <p>Everybody who plays Oxygen Not Included eventually learns the importance of heat management the hard way. Just about every piece of machinery adds heat to the environment. That heat doesn’t initially seem like a big deal, but it slowly accumulates and eventually makes itself known. Crops start wilting, machinery starts taking overheat damage, and some structures like power wires might even melt. </p>
+		
+		<p>By the time you encounter these problems, you have too much heat in your environment to reasonably handle in a quick and easy manner. As such, you should strive to manage heat proactively well before these problems occur. The atmosphere in your starting does have a substantial capacity for heat, so you don’t have to set up a system on cycle 1. But you should know how to watch for heat problems cropping up, and the mechanisms for removing heat.</p>
+    </div>
+</body>
+</html>

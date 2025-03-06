@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable Image</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+
+<!-- Modal for Full-Size Image -->
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="fullImage">
+</div>
+
+
+<!-- Thumbnail image, use same image name for both sources -->
+<figure>
+<img src="imgPlaceholder.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('imgPlaceholder.jpg')">
+<figcaption>Test caption</figcaption>
+</figure>
+
+
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Thermal Properties</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/sortableTable.js"></script>
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+    <!-- Include sidebar -->
+    <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+    <div class="content">
+        <h1>Material Thermal Properties</h1>
+		
+        <p>This topic lists the various thermal properties of materials and what you can construct from them. Some exceptions exist for liquid pipes.</p>
+		
+		<p>Most materials listed can be obtained early in the game, but some require more effort and advanced technology. Materials requiring extra effort are marked as follows:</p>
+		
+		<ul>
+			<li><strong>Manufactured:</strong> Obtainable with moderate research and setup (approximately mid-game)</li>
+			<li><strong>Space:</strong> Obtainable through advanced research and rocketry (approximately late game)</li>
+		</ul>
+		
+		<h2>Raw Mineral</h2>
+		
+		<p>Raw minerals can be used to construct tiles, pipes, and insulated pipes.</p>
+		
+		<table id="sortableMinerals">
+	<tr>
+		<th onclick="sortTable(0, 'sortableMinerals')">Name</th>
+		<th onclick="sortTable(1, 'sortableMinerals')">Specific Heat Capacity</th>
+        <th onclick="sortTable(2, 'sortableMinerals')">Thermal Conductivity</th>
+        <th onclick="sortTable(3, 'sortableMinerals')">Melting Point (°C)</th>
+        <th onclick="sortTable(4, 'sortableMinerals')">Properties</th>
+    </tr>
+    <tr>
+        <td>Ceramic (Manufactured)</td>
+        <td>0.840</td>
+        <td>0.620</td>
+        <td>1849.85</td>
+        <td>Decor +20%, Overheat Temperature +200 degrees C</td>
+    </tr>
+    <tr>
+        <td>Fossil</td>
+        <td>0.910</td>
+        <td>2.000</td>
+        <td>1338.85</td>
+        <td>Decor -10%</td>
+    </tr>
+    <tr>
+        <td>Granite</td>
+        <td>0.790</td>
+        <td>3.390</td>
+        <td>668.85</td>
+        <td>Decor +20%, Overheat Temperature +15 degrees C</td>
+    </tr>
+    <tr>
+        <td>Igneous Rock</td>
+        <td>1.000</td>
+        <td>2.000</td>
+        <td>1409.85</td>
+        <td>Overheat Temperature +15 degrees C</td>
+    </tr>
+    <tr>
+        <td>Insulite (Space)</td>
+        <td>5.570</td>
+        <td>0.00001</td>
+        <td>3621.85</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Mafic Rock</td>
+        <td>0.200</td>
+        <td>1.000</td>
+        <td>1409.85</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Obsidian</td>
+        <td>0.200</td>
+        <td>2.000</td>
+        <td>2726.85</td>
+        <td>Overheat Temperature +15 degrees C</td>
+    </tr>
+    <tr>
+        <td>Sandstone</td>
+        <td>0.800</td>
+        <td>2.900</td>
+        <td>926.85</td>
+        <td>Decor +10%</td>
+    </tr>
+    <tr>
+        <td>Sedimentary Rock</td>
+        <td>0.200</td>
+        <td>2.000</td>
+        <td>926.85</td>
+        <td></td>
+    </tr>
+</table>
+
+	<h2>Metal Ore</h2>
+	
+	<p>Metal ores can be used to construct radiant gas pipes, structures, and some machines.</p>
+	
+	<table id="sortableOres">
+    <tr>
+        <th onclick="sortTable(0, 'sortableOres')">Name</th>
+        <th onclick="sortTable(1, 'sortableOres')">Specific Heat Capacity</th>
+        <th onclick="sortTable(2, 'sortableOres')">Thermal Conductivity</th>
+        <th onclick="sortTable(3, 'sortableOres')">Melting Point (°C)</th>
+        <th onclick="sortTable(4, 'sortableOres')">Properties</th>
+    </tr>
+    <tr>
+        <td>Aluminum Ore</td>
+        <td>0.910</td>
+        <td>20.5</td>
+        <td>1083.85</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Copper Ore</td>
+        <td>0.386</td>
+        <td>4.5</td>
+        <td>1083.85</td>
+        <td>Decor +10%</td>
+    </tr>
+    <tr>
+        <td>Gold Amalgam</td>
+        <td>0.150</td>
+        <td>2.0</td>
+        <td>1063.85</td>
+        <td>Decor +10%, Overheat Temperature +50 degrees C</td>
+    </tr>
+    <tr>
+        <td>Iron Ore</td>
+        <td>0.449</td>
+        <td>4.0</td>
+        <td>1534.85</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Pyrite (Space)</td>
+        <td>0.386</td>
+        <td>4.5</td>
+        <td>1083.85</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wolframite</td>
+        <td>0.134</td>
+        <td>15.0</td>
+        <td>2926.85</td>
+        <td></td>
+    </tr>
+</table>
+
+	<h2>Refined Metal</h2>
+	
+	<p>Refined metals can be used to construct radiant liquid pipes, structures, and some machines.</p>
+	
+	<table id="sortableRefined">
+    <tr>
+        <th onclick="sortTable(0, 'sortableRefined')">Name</th>
+        <th onclick="sortTable(1, 'sortableRefined')">Specific Heat Capacity</th>
+        <th onclick="sortTable(2, 'sortableRefined')">Thermal Conductivity</th>
+        <th onclick="sortTable(3, 'sortableRefined')">Melting Point (°C)</th>
+        <th onclick="sortTable(4, 'sortableRefined')">Properties</th>
+    </tr>
+    <tr>
+        <td>Aluminum</td>
+        <td>0.910</td>
+        <td>205</td>
+        <td>660.3</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Copper</td>
+        <td>0.385</td>
+        <td>60</td>
+        <td>1083.85</td>
+        <td>Decor +20%, Overheat Temperature +50 degrees C</td>
+    </tr>
+    <tr>
+        <td>Gold</td>
+        <td>0.129</td>
+        <td>60</td>
+        <td>1063.85</td>
+        <td>Decor +50%, Overheat Temperature +50 degrees C</td>
+    </tr>
+    <tr>
+        <td>Iron</td>
+        <td>0.449</td>
+        <td>55</td>
+        <td>1534.85</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Lead</td>
+        <td>0.128</td>
+        <td>35</td>
+        <td>327.5</td>
+        <td>Overheat Temperature -20 degrees C</td>
+    </tr>
+    <tr>
+        <td>Niobium (Space)</td>
+        <td>0.265</td>
+        <td>54.0</td>
+        <td>2476.85</td>
+        <td>Decor +50%, Overheat Temperature +500 degrees C</td>
+    </tr>
+    <tr>
+        <td>Steel (Manufactured)</td>
+        <td>0.490</td>
+        <td>54.0</td>
+        <td>2426.85</td>
+        <td>Overheat Temperature +200 degrees C</td>
+    </tr>
+    <tr>
+        <td>Thermium (Space)</td>
+        <td>0.622</td>
+        <td>220.0</td>
+        <td>2676.85</td>
+        <td>Overheat Temperature +900 degrees C</td>
+    </tr>
+    <tr>
+        <td>Tungsten</td>
+        <td>0.134</td>
+        <td>60</td>
+        <td>3421.85</td>
+        <td>Overheat Temperature +50 degrees C</td>
+    </tr>
+</table>
+
+	<h2>Transparent</h2>
+	
+	<p>Transparent materials are used to construct window tiles, which are very useful for rapid heat transfer.</p>
+	
+	<table id="sortableTransparent">
+    <tr>
+        <th onclick="sortTable(0, 'sortableTransparent')">Name</th>
+        <th onclick="sortTable(1, 'sortableTransparent')">Specific Heat Capacity</th>
+        <th onclick="sortTable(2, 'sortableTransparent')">Thermal Conductivity</th>
+        <th onclick="sortTable(3, 'sortableTransparent')">Melting Point (°C)</th>
+    </tr>
+    <tr>
+        <td>Diamond</td>
+        <td>0.516</td>
+        <td>80.00</td>
+        <td>3926.85</td>
+    </tr>
+    <tr>
+        <td>Glass</td>
+        <td>0.840</td>
+        <td>1.11</td>
+        <td>1426.85</td>
+    </tr>
+</table>
+    </div>
+</body>
+</html>

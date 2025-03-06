@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Construct a Steam Turbine Cooling Loop</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+    <!-- Include sidebar -->
+    <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+    <div class="content">
+	<h1>How to Construct a Steam Turbine Cooling Loop</h1>
+<p>Steam Turbines are the most powerful heat removal option available. They remove heat by taking up to 2 kg per second of steam as an input, then outputting the same quantity as water. This temperature reduction of the output represents heat removal. Because the quantity of steam and water is equivalent, you can set this up as a closed loop by creating a small room full of water to heat up for the steam turbine to draw from.</p>
+
+    <p>This tutorial will demonstrate how to set up a cooling system for steam turbines.</p>
+
+    <h2>Prerequisites</h2>
+
+    <p>Steam turbines and other necessary machines require refined materials. The minimum requirements to set up this cooling system are as follows:</p>
+
+    <ul>
+        <li>1200 kg of Steel</li>
+        <li>200 kg of Plastic</li>
+        <li>Renewable Energy technology (for Steam Turbine)</li>
+        <li>Liquid Tuning technology (for Thermo Aquatuner)</li>
+        <li>A duplicant with the Electrical Engineering skill</li>
+    </ul>
+
+    <p>Automation is also strongly recommended. This tutorial includes steps to implement automation and assumes you will implement it in your build. The automation requirements are as follows:</p>
+
+    <ul>
+        <li>Supply of refined metal (Lead is recommended)</li>
+        <li>Liquid Tuning technology (for Liquid Pipe Thermo Sensor)</li>
+        <li>Smart Home technology (for Automation Wire)</li>
+    </ul>
+
+    <h2>1. Construct a Water Tank</h2>
+
+    <p>The water tank will hold the water and steam for the steam turbine to function. Note that this will be a fully enclosed room that is inaccessible once complete.</p>
+
+    <p>Start by constructing a room that is five tiles wide with walls on the side that are two tiles high, all using insulated tile.</p>
+
+    <figure>
+<img src="images/BasicWaterTank.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/BasicWaterTank.jpg')">
+<figcaption>The start of a water tank.</figcaption>
+</figure>
+
+    <p>Fill this room with water. You can do this with bottle emptiers.You need to fill this tank to the point where water reaches the second tile of the tank height. This pushes out any stray gas, which will allow the tank to contain just steam or water. You need to empty 5200 kg of water into the tank to accomplish this.</p>
+	
+	    <figure>
+<img src="images/FullWaterTank.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/FullWaterTank.jpg')">
+<figcaption>The tank with 5200 kg of water added.</figcaption>
+</figure>
+
+    <p>Optionally, you can instead use 200 kg of two different types of water. One type of water will sit on the tile on top of the other, effectively reaching the required height and pushing out the gas.</p>
+
+	    <figure>
+<img src="images/MixedWaterTank.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/MixedWaterTank.jpg')">
+<figcaption>A mix of clean and polluted water. Only 200 kg of each is used, but the tank is effectively full.</figcaption>
+</figure>
+
+    <p>The other types of water you can use are polluted water, salt water, and brine. Salt water or brine is recommended because these all drop debris when vaporized, and the dirt from polluted water can cook into a solid tile of sand at a hot enough temperature.</p>
+
+    <h2>2. Add a Thermo Aquatuner</h2>
+
+    <p>The Thermo Aquatuner will be the source of heat for the water tank. It takes a liquid input and transfers a large amount of heat from the liquid to the machine itself, which then radiates it into the surrounding environment. This will vaporize the water into steam, which is then fed into the steam turbine to begin the heat removal process.</p>
+
+    <p>Construct a thermo aquatuner on the left side of the tank. You must use steel as the material. Any other metal will cause the aquatuner to overheat.</p>
+
+	    <figure>
+<img src="images/WaterTankAquatuner.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/WaterTankAquatuner.jpg')">
+<figcaption>Adding a thermo aquatuner to the tank.</figcaption>
+</figure>
+
+    <p>Add input and output pipes. Also place a liquid pipe bridge after the input and connect it to the input and output lines of the aquatuner. This will allow for liquid flow to continue when the aquatuner is either full of liquid or turned off.</p>
+
+	    <figure>
+<img src="images/AquatunerPipeConnection.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/AquatunerPipeConnection.jpg')">
+<figcaption>The pipe connections for the thermo aquatuner.</figcaption>
+</figure>
+
+    <p>Place a liquid pipe thermo sensor on a pipe segment feeding into the aquatuner input outside the water tank and use automation wire to connect it to the aquatuner.</p>
+
+	    <figure>
+<img src="images/AquatunerAutomation.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/AquatunerAutomation.jpg')">
+<figcaption>The automation connection. The sensor should be on the nearest pipe segment before the thermo aquatuner input.</figcaption>
+</figure>
+
+    <p>Set the sensor to send a green signal at temperatures above 20 degrees C. This will prevent the aquatuner from freezing the liquid in the pipes.</p>
+
+    <p>Complete the pipe loop by constructing pipes leading to the areas you want to cool and adding in a liquid reservoir as a buffer. Using either a liquid pump or bottle drainer, fill the pipe loop with polluted water until the reservoir has a constant 100 kg of polluted water. If polluted water is unavailable, you can use clean water instead. Clean water has a higher freezing point, and is slightly more dangerous to use.</p>
+
+	    <figure>
+<img src="images/SteamTurbineCoolingLoop.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamTurbineCoolingLoop.jpg')">
+<figcaption>A completed loop, using a power room as a hot zone.</figcaption>
+</figure>
+
+    <p>Finally, set up the power connection for the aquatuner. Because it consumes 1200 kW, you must use conductive wire drawing power from a large power transformer. You don't want the aquatuner running just yet, so leave one segment of wire disconnected.</p>
+
+	    <figure>
+<img src="images/AquatunerPower.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/AquatunerPower.jpg')">
+<figcaption>Power connection. When you're ready to connect the wires, a build command connecting the two will instantly complete the connection.</figcaption>
+</figure>
+
+    <h2>3. Construct a Steam Turbine</h2>
+
+    <p>The Steam Turbine is the final piece of the loop, acting as your source of cooling. As the thermo aquatuner vaporizes the water in the tank, the steam turbine will consume the steam and reintroduce it to the tank as cooler water.</p>
+
+    <p>At this point, you're almost ready to enclose the water tank. Make sure anything within the tank is properly set up because any further changes inside become very difficult once the system is sealed and running.</p>
+
+    <p>Begin by placing a steam turbine one tile above the top of the tank. You can't construct this yet because it's not sitting on solid tile. But you can use the construction command as reference for the pipes to place.</p>
+
+	    <figure>
+<img src="images/SteamTurbinePlacement.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamTurbinePlacement.jpg')">
+<figcaption>This is where the steam turbine will ultimately go. Your steam turbine will exist as a construction outline for now.</figcaption>
+</figure>
+
+    <p>Construct a liquid vent in the water tank on the upper tile of the far right side. This should be in line with the output of the steam turbine.</p>
+
+	    <figure>
+<img src="images/SteamTurbineVent.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamTurbineVent.jpg')">
+<figcaption>Where to place the vent. The construction outline will also show the steam turbine output to help you align.</figcaption>
+</figure>
+
+    <p>Now you can add pipes from the steam turbine to the water tank. While you can build a straight connection from the turbine to the vent, the line we'll build here lets the output water collect heat from around the steam turbine to prevent it from overheating.</p>
+
+    <p>Construct two lines of radiant pipes, one line leading from the steam turbine output to the far left side of the turbine and the other line at the bottom of the steam turbine two tiles below. Connect these on the far left side with a liquid pipe bridge, and then connect the bottom right pipe segment with the liquid vent in the tank below.</p>
+
+	    <figure>
+<img src="images/SteamTurbinePipes.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamTurbinePipes.jpg')">
+<figcaption>Water output will help cool the steam turbine before being reintroduced to the pool.</figcaption>
+</figure>
+
+    <p>You might not be able to construct some of these pipe segments because they're out of reach. Like the steam turbine, you can leave these queued. The only parts you must construct before continuing are the liquid vent and the pipe segment within the tank.</p>
+
+    <p>Once those parts are constructed, you can now seal the tank. Construct a line of insulated tiles on top of the tank.</p>
+
+    <p>Once sealed, the water tank should appear to be completely full of liquid. If you have any gas trapped in the tank, deconstruct the tile above the gas and reconstruct it. This should force out the gas. If that doesn't work, use a bottle emptier to add a little more water before reconstructing the tile.</p>
+	
+		    <figure>
+<img src="images/SteamTurbineComplete.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamTurbineComplete.jpg')">
+<figcaption>The completed steam turbine setup.</figcaption>
+</figure>
+
+    <p>At this point, all remaining construction commands queued are available to complete. Wait for your duplicants to finish building everything. Once complete, you can turn on the system by connecting the break in the wire you left earlier.</p>
+
+    <h2>4. Observing the System in Action</h2>
+
+    <p>Cooling begins as soon as the thermo aquatuner turns on. You can observe this by looking at the temperature of the pipe contents before and after entering the aquatuner.</p>
+
+		    <figure>
+<img src="images/SteamPipeInput.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamPipeInput.jpg')">
+<figcaption>The polluted water right before the thermo aquatuner input is 21.1 degrees C...</figcaption>
+</figure>
+
+		    <figure>
+<img src="images/SteamPipeOutput.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamPipeOutput.jpg')">
+<figcaption>...and 8.5 degrees C right after the output.</figcaption>
+</figure>
+
+    <p>The steam turbine will take some time to fully activate. The water in the tank must first vaporize into steam, then increase in temperature to 125 degrees C. At that point you can observe the steam turbine activating, consuming steam, and outputting water back into the tank.</p>
+
+		    <figure>
+<img src="images/SteamTurbineWater.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamTurbineWater.jpg')">
+<figcaption>The output water picks up surrounding heat before going back into the tank.</figcaption>
+</figure>
+
+    <p>As long as the steam in your tank remains below 135 degrees C, this cooling loop runs indefinitely. Both the turbine and aquatuner might occasionally shut off as temperatures of the steam and polluted water drop too low, but they will turn on again as more heat is added to the system.</p>
+
+    <h2>Where to Go From Here</h2>
+
+    <p>This steam turbine cooling loop forms the basis of most of your cooling needs going forward. While you can use this setup for almost any of your cooling needs, here are a few additional options to consider.</p>
+
+    <h3>Additional Steam Turbines and Thermo Aquatuners</h3>
+
+    <p>You can expand your water tank to make use of multiple steam turbines and thermo aquatuners. This is a good option if you want to transfer a great deal of heat over a large area through your cooling loop.</p>
+
+    <p>If you are using polluted water as your cooling loop contents, two steam turbines can support three thermo aquatuners. Other liquids might use a different ratio.</p>
+
+    <h3>Radiant Pipes Instead of Thermo Aquatuners</h3>
+
+    <p>Because thermo aquatuners use a lot of power, you might consider transferring heat into the water tank using radiant pipes instead. This option works, but with important caveats.</p>
+
+    <p>The primary consideration is that this loop will only cool temperatures to a minimum of 125 degrees C, as the steam turbine can't turn on at temperatures below that. This means that any machines in the area you are cooling should be constructed from heat-resistant materials such as steel.</p>
+
+    <p>The other consideration is that you must use a different liquid as a coolant, as polluted water vaporizes at about 120 degrees C. This leaves either crude oil or petroleum as the only viable options. Because their specific heat capacities are substantially lower than polluted water, they also won't transfer heat as fast.</p>
+
+    <p>If these are acceptable tradeoffs for your setup, then you can use radiant pipes.</p>
+
+		    <figure>
+<img src="images/NoAquatuner.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/NoAquatuner.jpg')">
+<figcaption>This also adds heat to the tank, but not as effectively. Polluted water would vaporize in this setup, so crude oil is used instead.</figcaption>
+</figure>
+
+    <h3>Steam Turbine Cooling</h3>
+
+    <p>This tutorial provides some basic cooling for the steam turbine, but also left space for additional heating. You can expand your cooling loop to run through the middle of the steam turbine for additional cooling.</p>
+
+		    <figure>
+<img src="images/SteamTurbineAdditionalCooling.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/SteamTurbineAdditionalCooling.jpg')">
+<figcaption>The radiant pipe running through the midsection of the steam turbine is connected to the cooling loop, providing additional cooling.</figcaption>
+</figure>
+
+    <p>Additionally, the gas in the atmosphere around the steam turbine can affect cooling efficacy. The best gas to use for this is hydrogen. You can encase the steam turbine within insulated tile and pump hydrogen into the room for the most effective cooling.</p>
+
+    <h3>Cold Injector</h3>
+
+    <p>A cold injector is an optional augmentation that allows you to more precisely control temperatures. It works by confining the cooling loop to a small area, then automating a nearby airlock door to control when heat is moved into a nearby zone. The other side of this door can either act as the area you want to cool or as a cool zone for a separate cooling loop.</p>
+
+		    <figure>
+<img src="images/BasicColdInjector.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/BasicColdInjector.jpg')">
+<figcaption>The basics of a cold injector. The temperature of the water on the right can be finely controlled with the thermo sensor, and another cooling loop can be run through it to pick up the cold.</figcaption>
+</figure>
+
+    <p>Refer to the cold injector guide for information on setting this up.</p>
+
+    <h3>Space Materials</h3>
+
+    <p>After you start exploring space with rockets, you can begin to craft thermium and super coolant. Both of these tremendously improve the cooling efficacy of your setup.</p>
+
+    <p>Super coolant is a liquid that can hold and transfer substantially more heat than polluted water. Using this as your pipe liquid substantially increases the rate the loop cools. It also has an extremely low freezing point, allowing you to cool atmospheres to sub-zero temperatures.</p>
+
+    <p>Thermium is a refined metal with an extremely high melting point and thermal conductivity. Constructing a thermo aquatuner out of thermium increases the rate at which heat is transferred into the water tank.</p>
+
+    <p>If you want to prioritize obtaining one material, super coolant is more effective for cooling purposes.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermal Conductivity</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+    <!-- Include sidebar -->
+    <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+    <div class="content">
+        <h1>Thermal Conductivity</h1>
+		
+        <p>Thermal Conductivity is a measure of how quickly a medium transfers heat to another. The units are (DTU) / (m * s * degree C). Each tile is 1 m^2, so this measure indicates how fast the medium radiates heat to adjacent tiles or objects.</p>
+
+		<p>The mechanics of heat transfer are very complicated, factoring the different thermal conductivity values of the mediums, the temperature difference, and the type of object each medium is (gas, structure, duplicant, etc.). Instead of using thermal conductivity to calculate exactly how much heat is transferred, you should instead understand the basic principles and applications. Specifically, a high thermal conductivity allows for rapid heat transfer, and low thermal conductivity allows for slow heat transfer.</p>
+
+		<p>While the tooltips in game state that the lower thermal conductivity value between two objects is used for heat transfer, this is not always the case.</p>
+		
+		<h2>Insulation</h2>
+		
+		<p>Some structures have the Insulated property. This includes the Insulated Tile, Insulated Gas Pipe, and Insulated Liquid Pipe. These structures reduce heat transfer in three ways:</p>
+		
+		<ul>
+			<li>Reducing the thermal conductivity of the construction material. Insulated pipes are reduced by 1/32nd of the original thermal conductivity, and insulated tiles are reduced by 1/16256th.</li>
+			<li>Using only the thermal conductivity of the insulated structure for heat transfer calculations.</li>
+			<li>Adding additional mass to the structure, allowing for additional heat capacity.</li>
+		</ul>
+		
+		<p>For all practical construction materials, insulated pipes reduce the heat transfer between the contents and the surrounding environments by a substantial amount. Insulated tiles reduce heat transfer in the surrounding environments by an even greater amount.</p>
+		
+		<h2>Radiant Pipes</h2>
+		
+		<p>Radiant gas and liquid pipes double the thermal conductivity of the construction material. Because these pipes are constructed out of metals and metals have a naturally high thermal conductivity, radiant pipes exchange a great deal of heat with the surrounding environments.</p>
+
+    </div>
+</body>
+</html>

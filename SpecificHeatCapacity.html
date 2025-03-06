@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specific Heat Capacity</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+    <!-- Include sidebar -->
+    <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+    <div class="content">
+        <h1>Specific Heat Capacity</h1>
+		
+        <p>Specific Heat Capacity is a measure of how much heat a medium can store. This value indicates how much heat it takes to increase the temperature of the medium. The units are ((kDTU / kg) / degree C). In other words, a medium with a specific heat capacity of 1 will heat by 1 degree celsius if 1 kDTU is applied to 1 kg of it.</p>
+
+		<p>In practice, most mediums in the game have a specific heat capacity that is not 1, and will gain temperature inconsistently. Consider the following two liquids as an example, with 5 kDTUs applied to 1 kg of each:</p>
+		
+		<table>
+			<tr>
+				<th>Liquid (1kg)</th>
+				<th>Specific Heat Capacity</th>
+				<th>Temperature (+5 kDTU)</th>
+			</tr>
+			<tr>
+				<td>Water</td>
+				<td>4.179</td>
+				<td>+1.196 degrees C</td>
+			</tr>
+			<tr>
+				<td>Crude Oil</td>
+				<td>1.76</td>
+				<td>+2.841 degrees C</td>
+			</tr>
+		</table>
+		
+		<p>For the same amount of heat between these two, water gains less temperature. This is because water is able to hold more heat.</p>
+		
+		<h2>Use in Cooling Loops</h2>
+		
+		<p>Cooling loops use liquids or gases to pick up ambient heat. A higher specific heat capacity slows down the liquid or gas temperature gain, allowing it to hold more heat before undergoing potential state changes.</p>
+
+		<p>In general, you should aim to use a liquid or gas with the highest specific heat capacity for cooling loops. However, this should be balanced against other considerations. For example, the boiling point of crude oil is substantially higher than water, and is more appropriate for cooling loops in very hot environments.</p>
+
+    </div>
+</body>
+</html>

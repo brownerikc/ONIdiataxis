@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Construct a Basic Cooling Loop</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+    <!-- Include sidebar -->
+    <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+    <div class="content">
+	<h1>How to Construct a Basic Cooling Loop</h1>
+<p>In this tutorial, you will build a basic cooling loop that moves heat from a hot area to a cool area. The loop is a basic demonstration of how heat can be transferred, and you can use the principles involved to extend the loop to cool other areas or construct additional cooling loops.</p>
+
+    <h2>Prerequisites</h2>
+
+    <p>This tutorial is designed to get you started with minimal research and materials, and you will likely have everything required within 20 cycles.</p>
+
+    <p>The following materials are required:</p>
+
+    <ul>
+        <li>6x Wheezewort seeds (found in frozen biomes)</li>
+        <li>Phosphorite (found in jungle biomes)</li>
+        <li>Igneous rock or other raw mineral</li>
+        <li>Copper ore or other metal ore</li>
+    </ul>
+
+    <p>Igneous rock and copper ore are the ideal materials to use. You can substitute other materials such as sandstone and gold amalgam, but the cooling efficacy might be reduced.</p>
+
+    <p>The following research is required:</p>
+
+    <ul>
+        <li>Advanced Power Regulation (for Power Transformer)</li>
+        <li>Temperature Modulation (for Insulated Tile)</li>
+        <li>HVAC (for Radiant Gas Pipe)</li>
+        <li>Improved Ventilation (for Insulated Gas Pipe)</li>
+    </ul>
+
+    <p>You will also use structures obtained from research prerequisites for these technologies.</p>
+
+    <h2>1. Set up a Hot Zone</h2>
+
+    <p>The hot zone is an area that generates and contains heat. You will use power generation for this, as it creates a substantial amount of heat. This power generation setup can also be used to power your base.</p>
+
+    <p>Construct two coal generators, a storage bin, ten jumbo batteries, and a power transformer. Make sure the batteries are between the coal generators and power transformer.</p>
+
+    <figure>
+<img src="images/HotZonePower.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/HotZonePower.jpg')">
+<figcaption>The power setup. This generates heat. The second level for batteries is used here for compactness.</figcaption>
+</figure>
+
+    <p>Connect the coal generators and jumbo batteries with wire. Then connect the wire to the large end of the power transformer.</p>
+
+    <figure>
+<img src="images/HotZoneWiring.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/HotZoneWiring.jpg')">
+<figcaption>Generators wired to the batteries and transformer.</figcaption>
+</figure>
+
+    <p>Connect the small end of the power transformer to your power grid with wire. This allows you to make use of the generated power for your base.</p>
+
+    <figure>
+<img src="images/HotZoneRefrigerators.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/HotZoneRefrigerators.jpg')">
+<figcaption>In this example, the refrigerators represent a power grid.</figcaption>
+</figure>
+
+    <p>Enclose the power generation setup in a room made from insulated tile, with a manual airlock as a door to access the room. This will keep the heat contained in the room.</p>
+
+    <figure>
+<img src="images/HotZoneEnclosed.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/HotZoneEnclosed.jpg')">
+<figcaption>Some heat may leak out as duplicants open the door to enter the room. This is fine, as most heat will remain contained within.</figcaption>
+</figure>
+
+    <p>To make this a workable power source, set the fuel request threshold of the coal generators to 5% and the storage bin to hold coal.</p>
+
+    <figure>
+<img src="images/HotZoneFuelRequest.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/HotZoneFuelRequest.jpg')">
+<figcaption>When power stored in the batteries drops below 5%, duplicants are signalled to refuel the coal generators.</figcaption>
+</figure>
+
+    <p>As this setup runs, the generated heat remains contained within the room, and the room will steadily increase in temperature. You can monitor this with the temperature overlay.</p>
+
+    <figure>
+<img src="images/HotZoneHeat.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/HotZoneHeat.jpg')">
+<figcaption>The temperature overlay after two loads of coal burned in each generator. It's getting toasty.</figcaption>
+</figure>
+
+    <p>Let this setup run for several cycles to accumulate heat. You can let the temperature rise to anything below 75 degrees C.</p>
+
+    <h2>2. Set up a Cold Zone</h2>
+
+    <p>The cold zone is the opposite of the hot zone. It is an area that removes heat and contains the cold air. You'll construct a room similar to the hot zone, but instead of power structures, you'll use wheezewort plants. These constantly remove heat from the surrounding atmosphere, cooling down temperatures.</p>
+
+    <p>Construct six planter boxes and a storage bin.</p>
+
+    <figure>
+<img src="images/ColdZonePlanterBox.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/ColdZonePlanterBox.jpg')">
+<figcaption>The setup. This will eventually remove heat from the atmosphere.</figcaption>
+</figure>
+
+    <p>Plant the wheezewort seeds in the planter boxes.</p>
+
+    <p>Wheezeworts require a constant supply of phosphorite as fertilizer to function. Your duplicants automatically supply this phosphorite as the wheezeworts consume it. Set the storage bin to hold phosphorite for easy access.</p>
+
+    <figure>
+<img src="images/ColdZoneWheezeworts.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/ColdZoneWheezeworts.jpg')">
+<figcaption>Planted wheezeworts, actively cooling.</figcaption>
+</figure>
+
+    <p>Enclose this setup in a room made from insulated tile, with a manual airlock as a door to access the room. This will keep the cool air contained in the room.</p>
+
+    <figure>
+<img src="images/ColdZoneComplete.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/ColdZoneComplete.jpg')">
+<figcaption>The completed cold zone.</figcaption>
+</figure>
+
+    <p>Like the hot zone, letting this zone run for several cycles removes heat from the room and cools it down. You can monitor this from the temperature overlay.</p>
+
+    <figure>
+<img src="images/ColdZoneCooling.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/ColdZoneCooling.jpg')">
+<figcaption>The temperature overlay after a few cycles. It's getting chilly.</figcaption>
+</figure>
+
+
+    <p>The cooling provided by the six wheezeworts is enough to counteract the heat generation from your hot zone assuming the power generators run full time. Because your generators are unlikely to run that often, the cooling should drop the temperature of the hot zone.</p>
+
+    <h2>3. Build a Gas Pipe Loop</h2>
+
+    <p>Gases in a pipe can be used as a heat transfer medium. As it moves through the length of the pipe, the gas attempts to equalize in temperature with the surrounding atmosphere, either adding or removing heat depending on the temperature difference. Building a pipe loop creates a constant flow. This allows for the gas to pick up heat from the hot zone, deposit it in the cool zone, then repeat without any further intervention required.</p>
+
+    <p>Different kinds of pipes can either speed up or slow down heat transfer. You'll use these variants to ensure heat is transferred only where you want it.</p>
+
+    <p>Build a radiant gas pipe line through your hot zone. Construct it in a way that it flows through every tile in the room.</p>
+
+    <figure>
+<img src="images/HotZoneRadiantPipes.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/HotZoneRadiantPipes.jpg')">
+<figcaption>Radiant pipes snaking through the entire hot zone.</figcaption>
+</figure>
+
+    <p>Build a similar radiant gas pipe line through your cool zone.</p>
+
+    <figure>
+<img src="images/ColdZoneRadiantPipes.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/ColdZoneRadiantPipes.jpg')">
+<figcaption>Radiant pipes snaking through the entire cold zone.</figcaption>
+</figure>
+
+    <p>Connect one end of the pipe line in each zone together with insulated gas pipes.</p>
+
+    <figure>
+<img src="images/PipeConnectionFirst.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/PipeConnectionFirst.jpg')">
+<figcaption>One end of each zone connected with insulated pipes.</figcaption>
+</figure>
+
+    <p>Construct a gas bridge between the other two ends, and connect each side of the bridge to one of the remaining ends in the hot and cold zone pipe lines.</p>
+
+    <figure>
+<img src="images/PipeConnectionSecond.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/PipeConnectionSecond.jpg')">
+<figcaption>The second end connected, completing the loop.</figcaption>
+</figure>
+
+    <p>The bridge is required to provide flow direction for the gas and allows it to move. Without this, any gas you add to the loop remains stationary.</p>
+
+    <p>To add gas to the pipes, construct a gas pump near the loop, then connect it to the loop with a gas bridge. The output of the gas bridge should be on one of the pipe loop segments.</p>
+
+    <figure>
+<img src="images/FullLoopPump.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/FullLoopPump.jpg')">
+<figcaption>Adding gas to the pipes.</figcaption>
+</figure>
+
+    <p>Once the loop is full of gas, you can deconstruct the gas pump and pipes that connect it to the loop.</p>
+
+    <figure>
+<img src="images/FullLoopSaturated.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/FullLoopSaturated.jpg')">
+<figcaption>The cooling loop full of oxygen gas. It's constantly rotating between both zones.</figcaption>
+</figure>
+
+    <h2>4. Observing the Cooling in Action</h2>
+
+    <p>At this point, cooling occurs with the only intervention necessary being wheezewort fertilization. You can watch this in the temperature overlay while the rest of your base functions.</p>
+
+    <figure>
+<img src="images/FullLoopTemp.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/FullLoopTemp.jpg')">
+<figcaption>Temperature view after a few cycles. Notice that the temperature transfer happens most rapidly at the entry point to each zone. This is because the oxygen heats up or cools down as it moves through the zone.</figcaption>
+</figure>
+
+    <p>As long as the heat removal in the cool zone is greater than the heat addition in the hot zone, the temperature of the two zones should trend towards equalization. You will experience some heat or cold leakage as duplicants open the airlocks to access the rooms, but the insulation will help retain most of it.</p>
+
+    <h2>Where to Go From Here</h2>
+
+    <p>The cooling loop you built demonstrates the fundamentals of heat movement and removal. But you can apply these fundamentals in different ways to make different cooling setups with different degrees of efficacy and complexity. Here are a few options to consider.</p>
+
+    <h3>Liquid Cooling</h3>
+
+    <p>In most cases, liquid cooling is more effective than gas cooling because pipes can contain ten times the mass. This allows liquids to pick up more heat from the atmosphere than gases can.</p>
+
+    <p>Note that radiant liquid pipes require refined metals instead of metal ore.</p>
+
+    <h3>Alternate Liquids and Gases</h3>
+
+    <p>The cooling loop you built likely uses oxygen, polluted oxygen, or carbon dioxide. Ideally, you should use the gas with the highest specific heat capacity. Of these three options, polluted oxygen is the best, but hydrogen is better if you are able to find some to pump into your loop.</p>
+
+    <p>If you are using liquids, water and polluted water are equivalent in specific heat capacity. However, polluted water has a lower freezing point and higher vaporization point, making it much safer to use.</p>
+
+    <h3>Reservoir Buffer</h3>
+
+    <p>If your cooling loop is full of liquid or gas, you might notice the flow pause or back up on occasion. You can prevent this by adding a reservoir to the loop.</p>
+
+    <p>Any excess liquid or gas that would back up instead gets stored in the reservoir. Adding enough liquid or gas to the line to fill the reservoir to a small quantity (around 50 kg) allows for full saturation of pipes and free flow.</p>
+
+    <h3>Normal Pipes for Cooling</h3>
+
+    <p>While radiant pipes are ideal for heat transfer, normal pipes have enough thermal conductivity to allow for heat transfer. If you don't mind the slower heat transfer, you can use these instead of radiant pipes to save metal.</p>
+
+    <h3>Large Scale Cooling</h3>
+
+    <p>The loop you built cools a relatively small room. But you can also expand the loop to cool a larger area, such as your main base.</p>
+
+    <p>The larger you make the cooling loop, the more heat it will pick up. As such, you should consider additional heat removal as you expand your loop.</p>
+
+    <h3>Anti Entropy Thermo-Nullifier Cooling</h3>
+
+    <p>The Anti Entropy Thermo-Nullifier is a machine occasionally found in frozen biomes, and acts as a more advanced form of cooling. When provided with hydrogen, these remove a large amount of heat from the surrounding atmosphere. Additionally, you can add automation to prevent it from cooling environments too much.</p>
+
+    <p>Because you cannot construct this structure, you are limited to whatever you can find in your asteroid.</p>
+
+    <h3>Steam Turbine Cooling</h3>
+
+    <p>A steam turbine system is the most effective and robust system of cooling available. Steam turbines consume steam at 125 degrees C and output an equal amount of water at 95 degrees C. Recycling this water and adding more heat to it allows you to remove 30 degrees C or more of heat from the water at a time.</p>
+
+    <p>Steam turbine cooling systems are the most complex setup, and require steel and plastic to construct. Once you obtain these materials, you should learn how to construct these systems for the best cooling.</p>
+    </div>
+</body>
+</html>

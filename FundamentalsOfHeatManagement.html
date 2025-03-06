@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentals of Heat Management</title>
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<!-- Script for image thumbnails -->
+<script>
+    function openModal(imageSrc) {
+        document.getElementById("fullImage").src = imageSrc;
+        document.getElementById("imageModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+</script>
+
+<body>
+    <!-- Include sidebar -->
+    <iframe src="sidebar.html" style="width: 250px; height: 100vh; border: none; position: fixed;"></iframe>
+	
+	<!-- Modal for Full-Size Image -->
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullImage">
+	</div>
+	
+    <div class="content">
+        <h1>Fundamentals of Heat Management</h1>
+        <p>All methods of heat management come down to a simple method: transferring heat from a hot location to a cold location. The cold location almost always has some method of removing heat from the surrounding atmosphere in order to make this method sustainable without manual intervention.</p>
+		
+		<h2>Heat Transfer With a Cooling Loop</h2>
+		
+		<p>The easiest way to move heat is by storing it in a liquid or gas, then moving the liquid or gas to the cold location through pipes. Pipes naturally transfer heat to and from the surrounding environments, then transfer the heat to and from the contents of the pipe.</p>
+
+		<p>By setting up the pipe as a loop, you can automate the transfer by reusing the same liquid or gas.</p>
+
+		<figure>
+<img src="images/CoolingLoop.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/CoolingLoop.jpg')">
+<figcaption>A cooling loop using liquid pipes.</figcaption>
+</figure>
+
+	<figure>
+<img src="images/CoolingLoopTemps.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/CoolingLoopTemps.jpg')">
+<figcaption>Temperature view. Over time, heat will move from the hot box to the cold box, and both boxes will even out in temperature.</figcaption>
+</figure>
+
+		<p>Note that a pipe loop requires an input and output point somewhere along the loop. Without this, the liquid or gas doesn’t know which way to flow and stops.</p>
+
+	<figure>
+<img src="images/StuckPipe.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/StuckPipe.jpg')">
+<figcaption>Water from the pump won't fill the pipe loop because the water has no input to flow towards.</figcaption>
+</figure>
+
+		<p>The easiest way to direct flow is by adding a valve or bridge to the loop. These have an input and output, and are cheap to build.</p>
+
+	<figure>
+<img src="images/BridgeFix.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/BridgeFix.jpg')">
+<figcaption>The bridge adds an input (white arrow), which the water begins to flow towards.</figcaption>
+</figure>
+		
+		<h2>Reservoirs</h2>
+		
+		<p>If you fill your cooling loop with the maximum amount of liquid or gas it can hold, you might notice occasional backups. Stopped liquids or gases continue to transfer heat with the surrounding environments, which can cause inconsistent temperatures during transfer points. This can also cause a state change in your liquid or gas, which leaks the contents and damages the pipe.</p>
+
+		</p>You can use reservoirs as a buffer to mitigate these issues. Reservoirs prevent backups by allowing the liquid or gas a place to flow to. Additionally, the temperature of the reservoir contents is averaged, ensuring more consistent temperatures.</p>
+
+		<figure>
+<img src="images/LoopReservoir.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/LoopReservoir.jpg')">
+<figcaption>A cooling loop with a reservoir. Because it includes an input and output, you can also use it in place of a bridge to direct flow.</figcaption>
+</figure>
+
+		<p>The reservoir on your loop should ideally contain a small amount of liquid or gas. The temperature of the contents stabilize more with greater quantities, but this is rarely necessary. Filling the reservoir to or near capacity results in backups again.</p>
+		
+		<h2>Insulated and Radiant Pipes</h2>
+		
+		<p>You can better control where temperature transfer happens in the loop through the use of insulated or radiant pipes. Insulated pipes greatly decrease heat transfer with the surrounding environments, while radiant pipes increase heat transfer.</p>
+
+		<figure>
+<img src="images/PipeTypes.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/PipeTypes.jpg')">
+<figcaption>From left to right: normal pipe, insulated pipe, radiant pipe.</figcaption>
+</figure>
+
+		<p>Insulated pipes take slightly more material to build than regular pipes. This is a relatively low cost, so you should always use insulated pipes in loop sections where you don’t want to transfer heat.</p>
+
+		<p>Radiant pipes require metal to construct, which tends to be somewhat more uncommon than other pipe material. This might make them uneconomical for larger loops where you want to transfer heat over a large area. In these cases, consider using regular pipes for most of the loop with strategic placement of radiant pipes in more extreme temperature spots.</p>
+
+		<h2>Liquid vs. Gas Loops</h2>
+		
+		<p>While you can use either liquid or gas pipes for a cooling loop, liquid is preferable in most cases. This is because each liquid pipe segment can hold 10 kg, while gas pipe segments can hold 1 kg. The greater mass density allows liquids to hold more heat.</p>
+
+		<figure>
+<img src="images/LiquidVsGasStart.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/LiquidVsGasStart.jpg')">
+<figcaption>A comparable gas (top) and liquid (bottom) cooling loop, with similar starting temperatures.</figcaption>
+</figure>
+
+		<figure>
+<img src="images/LiquidVsGasEnd.jpg" alt="Thumbnail" class="thumbnail" onclick="openModal('images/LiquidVsGasEnd.jpg')">
+<figcaption>After some time. The liquid loop equalized in temperature significantly faster.</figcaption>
+</figure>
+
+		<p>The primary advantage to using gas is that it is far less likely to undergo a state change. When a gas condensates in a pipe or a liquid freezes or evaporates in a pipe, the contents leak and the pipe is damaged. The common gases you might use for a cooling loop have very low condensation points, making state change very difficult. By contrast, common liquids such as water have state change points that you might realistically experience in a cooling loop.</p>
+
+		<p>However, you can typically avoid this problem by using an alternate liquid with a larger liquid state temperature range, such as petroleum.</p>
+
+    </div>
+</body>
+</html>
