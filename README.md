@@ -4,10 +4,12 @@ I recently learned about the [Diataxis](https://diataxis.fr/) approach to writin
 Documentation set: [Heat Management in Oxygen Not Included](https://brownerikc.github.io/ONIdiataxis/HeatManagement.html)
 
 ## Topic Types Marked
-For the purposes of exercise, I explicitly noted the type of each topic and categorized them in navigation. If this was more formal documentation, I would consider different headers and organization to be less prescriptive.
+Diataxis identifies four types of documentation. For the purposes of exercise, I explicitly noted the type of each topic and categorized them in navigation. If this was more formal documentation, I would consider different headers and organization to be less prescriptive.
 
 ## Work in Progress
 What's here can be considered an MVP. I still have a topic or two I want to add, and the HTML/CSS/JavaScript is essentially "just enough" to present content. I want to clean that up further.
+
+Viewing this on a desktop browser is recommended.
 
 ## Generative AI
 Portions of the HTML and JavaScript were created with generative AI or built upon those AI outputs. You can reasonably assume any ugly or clunky parts are from the AI.
